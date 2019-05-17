@@ -59,20 +59,21 @@
         break;
     }
     var finishing_text;
-    if score = 4 {
-      finishing_text = "Great job!";
-    }
-    else if score = 3 {
-      finishing_text = "Well done.";
-    }
-    else if score = 2 {
-      finishing_text = "Better luck next time!";
-    }
-    else if score = 1 {
-      finishing_text = "You need to work on your math!";
-    }
-    else {
-      finishing_text = "You really need to work on your math!";
+    switch(score) {
+      case 4:
+        finishing_text = "Great job!";
+        break;
+      case 3:
+        finishing_text = "Well done.";
+        break;
+      case 2:
+        finishing_text = "Better luck next time!";
+        break;
+      case 1:
+        finishing_text = "You need to work on your math!";
+        break;
+      default:
+        finishing_text = "You really need to work on your math!";
     }
     var submit = window.confirm("Do you want to submit this quiz?");
     var percent = score / 4 * 100;
