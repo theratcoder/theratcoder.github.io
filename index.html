@@ -85,6 +85,22 @@
     else {
      location.reload(); 
     }
+    
+    function saveToFirebase(score) {
+    var scoreObject = {
+        score: score
+    };
+
+    firebase.database().ref('scores').push().set(scoreObject)
+        .then(function(snapshot) {
+            success(); // some success method
+        }, function(error) {
+            console.log('error' + error);
+            error(); // some error method
+        });
+}
+
+saveToFirebase(score);
     </script>
   
   <!-- The core Firebase JS SDK is always required and must be listed first -->
