@@ -29,7 +29,7 @@
     output.innerHTML = JSON.stringify(snapshot.val(), null, 2);
 });
 
-    firebase.database().ref('mathematical-quiz').push().set(scoreObject)
+    firebase.database().ref('mathematical-quiz-b71d8').push().set(scoreObject)
         .then(function(snapshot) {
             success(); // some success method
         }, function(error) {
