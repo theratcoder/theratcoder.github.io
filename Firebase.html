@@ -24,6 +24,10 @@
     var scoreObject = {
         score: score
     };
+      var ref = firebase.database().ref();                           
+      ref.on("value", function(snapshot){
+    output.innerHTML = JSON.stringify(snapshot.val(), null, 2);
+});
 
     firebase.database().ref('mathematical-quiz').push().set(scoreObject)
         .then(function(snapshot) {
