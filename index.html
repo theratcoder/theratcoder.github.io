@@ -91,7 +91,7 @@
         score: score
     };
 
-    firebase.database().ref('scores').push().set(scoreObject)
+    firebase.database().ref('https://mathematical-quiz-b71d8.firebaseio.com/').push().set(scoreObject)
         .then(function(snapshot) {
             success(); // some success method
         }, function(error) {
