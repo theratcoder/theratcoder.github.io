@@ -85,5 +85,50 @@
     else {
      location.reload(); 
     }
+    scores: {
+      1: score
+    }
+      
     </script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->		
+ <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>		
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use		
+      https://firebase.google.com/docs/web/setup#config-web-app -->		
+
+  <script>		
+   // Your web app's Firebase configuration		
+   var firebaseConfig = {		
+     apiKey: "AIzaSyBqpSKrmTzi4IL2AFJKyCwu4ZPpJQ33xSw",		
+     authDomain: "mathematical-quiz-b71d8.firebaseapp.com",		
+     databaseURL: "https://mathematical-quiz-b71d8.firebaseio.com",		
+     projectId: "mathematical-quiz-b71d8",		
+     storageBucket: "mathematical-quiz-b71d8.appspot.com",		
+     messagingSenderId: "507994726644",		
+     appId: "1:507994726644:web:e07e6f4c7c7774b1"		
+   };		
+   // Initialize Firebase		
+   firebase.initializeApp(firebaseConfig);		
+   		
+     		
+     function saveToFirebase(score) {		
+     var scoreObject = {		
+         score: score		
+     };		
+       var ref = firebase.database().ref();                                 		
+       ref.on("value", function(snapshot){		
+     output.innerHTML = JSON.stringify(snapshot.val(), null, 2);		
+ });		
+		
+     firebase.database().ref('mathematical-quiz-b71d8').push().set(scoreObject)		
+         .then(function(snapshot) {		
+             success(); // some success method		
+         }, function(error) {		
+             console.log('error' + error);		
+             error(); // some error method		
+         });		
+ }		
+		
+ saveToFirebase(score);		
+ </script>
   </body>
