@@ -27,4 +27,41 @@
 		  <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 	  </form>
 	</div>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCwaznouaI5yl4jUBq0VBsf2PU-P1gBszY",
+    authDomain: "math-quiz-final-attempt.firebaseapp.com",
+    databaseURL: "https://math-quiz-final-attempt.firebaseio.com",
+    projectId: "math-quiz-final-attempt",
+    storageBucket: "math-quiz-final-attempt.appspot.com",
+    messagingSenderId: "34150629104",
+    appId: "1:34150629104:web:1edfd4075ce14b45"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+	
+	function saveToFirebase(number) {
+    var numberObject = {
+        number: number
+    };
+
+    firebase.database().ref('scores').push().set(numberObject)
+        .then(function(snapshot) {
+            success(); // some success method
+        }, function(error) {
+            console.log('error' + error);
+            error(); // some error method
+        });
+}
+
+saveToFirebase(number);
+</script>
+
   </body>
