@@ -12,56 +12,80 @@
   <p>
     I hope you like it! :)
   </p>
-  <div class="container">
-	  
-	  <form class="mathQuiz">
-		  <h2 class="mathQuizHeading">Math Quiz!</h2>
-		  <label for="3x3" class="int-only">3 x 3 =</label>
-		  <input type="number" id="answer3x3" class="prob1ans" placeholder="" required autofocus>
-		  <label for="5+6" class="int-only"> 5 + 6 =</label>
-		  <input type="number" id="answer5+6" class="prob2ans" placeholder="" required autofocus>
-		  <label for="12-8" class="int-only">12 - 8 =</label>
-		  <input type="number" id="answer12-8" class="prob3ans" placeholder="" required autofocus>
-		  <label for="18/3" class="int-only">18 / 3 =</label>
-		  <input type="number" id="answer18/3" class="prob4ans" placeholder="" required autofocus>
-		  <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-	  </form>
-	</div>
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCwaznouaI5yl4jUBq0VBsf2PU-P1gBszY",
-    authDomain: "math-quiz-final-attempt.firebaseapp.com",
-    databaseURL: "https://math-quiz-final-attempt.firebaseio.com",
-    projectId: "math-quiz-final-attempt",
-    storageBucket: "math-quiz-final-attempt.appspot.com",
-    messagingSenderId: "34150629104",
-    appId: "1:34150629104:web:1edfd4075ce14b45"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-	
-	function saveToFirebase(number) {
-    var numberObject = {
-        number: number
-    };
-
-    firebase.database().ref('scores').push().set(numberObject)
-        .then(function(snapshot) {
-            success(); // some success method
-        }, function(error) {
-            console.log('error' + error);
-            error(); // some error method
-        });
-}
-
-saveToFirebase(number);
-</script>
-
+	 			  
+  <script type=text/javascript>
+    var score = 0;
+    
+    var times33 = window.prompt("3 x 3");
+    switch(times33) {
+      case "9":
+        document.write("correct, ");
+        score++;
+        break;
+      default:
+        document.write("incorrect, ");
+        break;
+    }
+    
+    var subtract5221 = window.prompt("52 - 21");
+    switch(subtract5221) {
+      case "31":
+        document.write("correct, ");
+        score++;
+        break;
+      default:
+        document.write("incorrect, ");
+        break;
+    }
+    
+    var add56 = window.prompt("5 + 6");
+    switch(add56) {
+      case "11":
+        document.write("correct, ");
+        score++;
+        break;
+      default:
+        document.write("incorrect, ");
+        break;
+    }
+    
+    var divide183 = window.prompt("18 / 3");
+    switch(divide183) {
+      case "6":
+        document.write("correct - ");
+        score++;
+        break;
+      default:
+        document.write("incorrect - ");
+        break;
+    }
+    var finishing_text;
+    switch(score) {
+      case 4:
+        finishing_text = "Great job!";
+        break;
+      case 3:
+        finishing_text = "Well done.";
+        break;
+      case 2:
+        finishing_text = "Better luck next time!";
+        break;
+      case 1:
+        finishing_text = "You need to work on your math!";
+        break;
+      default:
+        finishing_text = "You really need to work on your math!";
+        break;
+    }
+    var submit = window.confirm("Do you want to submit this quiz?");
+    var percent = score / 4 * 100;
+    if (submit) {
+      document.write("Your final score is " + score + " out of 4 (" + percent + "%). ");
+      document.write(finishing_text);
+    }
+    else {
+     location.reload(); 
+    }
+	</script>
+  
   </body>
