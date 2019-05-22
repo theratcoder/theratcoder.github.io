@@ -18,9 +18,7 @@ canvas {
   </h1>
   <p>
     I hope you like it! :)
-  </p>
-<button onclick="startGame(); this.style.display = 'none';">Start!</button>
-<button id="RESTART" onclick="restart()">Restart</button>	 			  
+  </p>	 			  
   <script type=text/javascript>
     var score = 0;
     
@@ -228,7 +226,9 @@ function clearmove() {
     myGamePiece.speedX = 0; 
     myGamePiece.speedY = 0; 
 }
-</script>
+	</script>
+<button onclick="startGame(); this.style.display = 'none';">Start!</button>
+<button id="RESTART" onclick="restart()">Restart</button>
 <div style="text-align:center;width:480px;">
   <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
   <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
