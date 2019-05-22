@@ -19,13 +19,7 @@ canvas {
     theratcoder
   </title>
 </head>
-<button id="START" onclick="if score = 4 {
-			    startGame();
-			    } 
-			    else {
-			    alert("Get a better score next time and then you can play the game!");
-			    } 
-			    this.style.display = 'none';">Start!</button>
+<button id="START" onclick="startGame(); this.style.display = 'none';">Start!</button>
 <button id="RESTART" onclick="restart()">Restart</button>
   <script type=text/javascript>
     var score = 0;
