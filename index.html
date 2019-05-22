@@ -19,6 +19,8 @@ canvas {
     theratcoder
   </title>
 </head>
+<button id="START" onclick="startGame(); this.style.display = 'none';">Start!</button>
+<button id="RESTART" onclick="restart()">Restart</button>
   <script type=text/javascript>
     var score = 0;
     
@@ -94,6 +96,8 @@ canvas {
     }
 </script>
 <script type=text/javascript>
+	document.getElementById("RESTART").style.display = "none";
+	document.getElementById("START").style.display = "none";
 var myGamePiece;
 var myObstacles = [];
 var myScore;
@@ -121,7 +125,6 @@ var myGameArea = {
         clearInterval(this.interval);
     }
 }
-document.getElementById("RESTART").style.display = "none";
 function component(width, height, color, x, y, type) {
     this.type = type;
     this.width = width;
@@ -225,9 +228,10 @@ function clearmove() {
     myGamePiece.speedX = 0; 
     myGamePiece.speedY = 0; 
 }
-	</script>
-<button id="START" onclick="startGame(); this.style.display = 'none';">Start!</button>
-<button id="RESTART" onclick="restart()">Restart</button>
+if score = 4 {
+	document.getElementById("START").style.display = "block";
+}
+</script>
 <div style="text-align:center;width:480px;">
   <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
   <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
