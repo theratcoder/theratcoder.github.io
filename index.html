@@ -99,11 +99,13 @@ function component(width, height, color, x, y, type) {
 function restart() {
 location.reload();
 }
+var testhighscore = false;
 function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
             myGameArea.stop;
+            testhighscore = true;
             return;
         } 
     }
@@ -136,7 +138,10 @@ function everyinterval(n) {
     if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
     return false;
 }
-
+if (testhighscore && localStorage.getItem("highscore") > myGameArea.frameNo) {
+	localStorage.setItem("highscore", myGameArea.frameNo)
+	document.write("Your highscore is now " +  localStorage.getItem("highscore"))
+}	
 function moveup() {
     myGamePiece.speedY = -1; 
 }
