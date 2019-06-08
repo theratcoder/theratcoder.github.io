@@ -32,17 +32,16 @@ if (localStorage.getItem("highscore") !== null) {
 }
 else {
 	document.write("Play the game to set a highscore");
+    localStorage.setItem("highscore", 0);
 }
 var myGamePiece;
 var myObstacles = [];
 var myScore;
-
 function startGame() {
     myGamePiece = new component(30, 30, "red", 10, 120);
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     myGameArea.start();
 }
-
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
@@ -105,13 +104,13 @@ function component(width, height, color, x, y, type) {
 function restart() {
 location.reload();
 }
-var testhighscore = false;
+var testhighscore = true;
 function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
+            updatehighscore();    
             myGameArea.stop;
-            testhighscore = true;
             return;
         } 
     }
@@ -139,31 +138,28 @@ function updateGameArea() {
     myGamePiece.newPos();    
     myGamePiece.update();
 }
-
 function everyinterval(n) {
     if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
     return false;
 }
-if (testhighscore && localStorage.getItem("highscore") > myGameArea.frameNo) {
+function updatehighscore() {
+if (testhighscore && localStorage.getItem("highscore") < myGameArea.frameNo) {
 	localStorage.setItem("highscore", myGameArea.frameNo)
 	document.write("Your highscore is now " +  localStorage.getItem("highscore"))
-}	
+}
+}
 function moveup() {
     myGamePiece.speedY = -1; 
 }
-
 function movedown() {
     myGamePiece.speedY = 1; 
 }
-
 function moveleft() {
     myGamePiece.speedX = -1; 
 }
-
 function moveright() {
     myGamePiece.speedX = 1; 
 }
-
 function clearmove() {
     myGamePiece.speedX = 0; 
     myGamePiece.speedY = 0; 
