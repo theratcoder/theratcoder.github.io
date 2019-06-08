@@ -143,7 +143,7 @@ function everyinterval(n) {
     return false;
 }
 function updatehighscore() {
-if (localStorage.getItem("highscore") < myGameArea.frameNo) {
+if (testhighscore && localStorage.getItem("highscore") < myGameArea.frameNo) {
 	localStorage.setItem("highscore", myGameArea.frameNo);
 	document.write("Your highscore is now " +  localStorage.getItem("highscore"));
 }
