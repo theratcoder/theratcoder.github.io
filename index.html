@@ -147,9 +147,6 @@ if (localStorage.getItem("highscore") < myGameArea.frameNo) {
 	localStorage.setItem("highscore", myGameArea.frameNo);
 	document.write("Your highscore is now " +  localStorage.getItem("highscore"));
 }
-else {
-	document.write("Your highscore is still " + localStorage.getItem("highscore");
- }
 }
 function moveup() {
     myGamePiece.speedY = -1; 
