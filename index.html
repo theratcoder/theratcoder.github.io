@@ -27,6 +27,12 @@ canvas {
 <button id="START" onclick="startGame(); this.style.display = 'none';">Start!</button>
 <button id="RESTART" onclick="restart()">Restart</button>
 <script type=text/javascript>
+if (localStorage.getItem("highscore") !=== null) {
+	document.write("Your highscore is " + localStorage.getItem("highscore"));
+}
+else {
+	document.write("Play the game to set a highscore");
+}
 var myGamePiece;
 var myObstacles = [];
 var myScore;
