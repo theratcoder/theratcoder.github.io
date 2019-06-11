@@ -2,6 +2,9 @@ p {
 color: yellow;
 background-color: blue;
 }
+.gamename {
+  color: green;
+}
 h1 {
   color: black;
 }
